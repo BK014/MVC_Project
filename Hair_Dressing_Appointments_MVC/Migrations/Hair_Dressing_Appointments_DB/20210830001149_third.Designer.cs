@@ -3,14 +3,16 @@ using Hair_Dressing_Appointments_MVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hair_Dressing_Appointments_MVC.Migrations.Hair_Dressing_Appointments_DB
 {
     [DbContext(typeof(Hair_Dressing_Appointments_DBContext))]
-    partial class Hair_Dressing_Appointments_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20210830001149_third")]
+    partial class third
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

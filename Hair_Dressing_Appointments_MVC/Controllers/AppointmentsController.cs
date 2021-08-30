@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hair_Dressing_Appointments_MVC.Data;
 using Hair_Dressing_Appointments_MVC.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Hair_Dressing_Appointments_MVC.Controllers
 {
@@ -47,19 +46,19 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
 
             return View(appointment);
         }
-        [Authorize]
+
         // GET: Appointments/Create
         public IActionResult Create()
         {
-            ViewData["ClientId"] = new SelectList(_context.Client, "Id", "Id");
-            ViewData["HairDresserId"] = new SelectList(_context.HairDresser, "Id", "Id");
-            ViewData["HairDressingOptionId"] = new SelectList(_context.HairDressingOption, "Id", "Id");
+            ViewData["ClientId"] = new SelectList(_context.Client, "Id", "Name");
+            ViewData["HairDresserId"] = new SelectList(_context.HairDresser, "Id", "Name");
+            ViewData["HairDressingOptionId"] = new SelectList(_context.HairDressingOption, "Id", "OptionName");
             return View();
         }
 
         // POST: Appointments/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ClientId,HairDresserId,HairDressingOptionId")] Appointment appointment)
@@ -70,12 +69,12 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "Id", "Id", appointment.ClientId);
-            ViewData["HairDresserId"] = new SelectList(_context.HairDresser, "Id", "Id", appointment.HairDresserId);
-            ViewData["HairDressingOptionId"] = new SelectList(_context.HairDressingOption, "Id", "Id", appointment.HairDressingOptionId);
+            ViewData["ClientId"] = new SelectList(_context.Client, "Id", "Name", appointment.ClientId);
+            ViewData["HairDresserId"] = new SelectList(_context.HairDresser, "Id", "Name", appointment.HairDresserId);
+            ViewData["HairDressingOptionId"] = new SelectList(_context.HairDressingOption, "Id", "OptionName", appointment.HairDressingOptionId);
             return View(appointment);
         }
-        [Authorize]
+
         // GET: Appointments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -89,15 +88,15 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "Id", "Id", appointment.ClientId);
-            ViewData["HairDresserId"] = new SelectList(_context.HairDresser, "Id", "Id", appointment.HairDresserId);
-            ViewData["HairDressingOptionId"] = new SelectList(_context.HairDressingOption, "Id", "Id", appointment.HairDressingOptionId);
+            ViewData["ClientId"] = new SelectList(_context.Client, "Id", "Name", appointment.ClientId);
+            ViewData["HairDresserId"] = new SelectList(_context.HairDresser, "Id", "Name", appointment.HairDresserId);
+            ViewData["HairDressingOptionId"] = new SelectList(_context.HairDressingOption, "Id", "OptionName", appointment.HairDressingOptionId);
             return View(appointment);
         }
 
         // POST: Appointments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ClientId,HairDresserId,HairDressingOptionId")] Appointment appointment)
@@ -127,12 +126,12 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Client, "Id", "Id", appointment.ClientId);
-            ViewData["HairDresserId"] = new SelectList(_context.HairDresser, "Id", "Id", appointment.HairDresserId);
-            ViewData["HairDressingOptionId"] = new SelectList(_context.HairDressingOption, "Id", "Id", appointment.HairDressingOptionId);
+            ViewData["ClientId"] = new SelectList(_context.Client, "Id", "Name", appointment.ClientId);
+            ViewData["HairDresserId"] = new SelectList(_context.HairDresser, "Id", "Name", appointment.HairDresserId);
+            ViewData["HairDressingOptionId"] = new SelectList(_context.HairDressingOption, "Id", "OptionName", appointment.HairDressingOptionId);
             return View(appointment);
         }
-        [Authorize]
+
         // GET: Appointments/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

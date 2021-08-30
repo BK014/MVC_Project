@@ -3,18 +3,20 @@ using Hair_Dressing_Appointments_MVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hair_Dressing_Appointments_MVC.Migrations.Hair_Dressing_Appointments_DB
 {
     [DbContext(typeof(Hair_Dressing_Appointments_DBContext))]
-    partial class Hair_Dressing_Appointments_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20210829234854_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.15")
+                .HasAnnotation("ProductVersion", "3.1.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -56,7 +58,6 @@ namespace Hair_Dressing_Appointments_MVC.Migrations.Hair_Dressing_Appointments_D
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -75,7 +76,6 @@ namespace Hair_Dressing_Appointments_MVC.Migrations.Hair_Dressing_Appointments_D
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -94,7 +94,6 @@ namespace Hair_Dressing_Appointments_MVC.Migrations.Hair_Dressing_Appointments_D
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("OptionName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

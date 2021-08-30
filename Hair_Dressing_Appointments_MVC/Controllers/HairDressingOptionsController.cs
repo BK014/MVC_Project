@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hair_Dressing_Appointments_MVC.Data;
 using Hair_Dressing_Appointments_MVC.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Hair_Dressing_Appointments_MVC.Controllers
 {
@@ -43,7 +42,7 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
 
             return View(hairDressingOption);
         }
-        [Authorize]
+
         // GET: HairDressingOptions/Create
         public IActionResult Create()
         {
@@ -51,8 +50,8 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
         }
 
         // POST: HairDressingOptions/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,OptionName,Charge")] HairDressingOption hairDressingOption)
@@ -65,7 +64,7 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
             }
             return View(hairDressingOption);
         }
-        [Authorize]
+
         // GET: HairDressingOptions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -83,8 +82,8 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
         }
 
         // POST: HairDressingOptions/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,OptionName,Charge")] HairDressingOption hairDressingOption)
@@ -116,7 +115,7 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
             }
             return View(hairDressingOption);
         }
-        [Authorize]
+
         // GET: HairDressingOptions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

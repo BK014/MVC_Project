@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hair_Dressing_Appointments_MVC.Data;
 using Hair_Dressing_Appointments_MVC.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Hair_Dressing_Appointments_MVC.Controllers
 {
-    [Authorize]
     public class ClientsController : Controller
     {
         private readonly Hair_Dressing_Appointments_DBContext _context;
@@ -52,8 +50,8 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
         }
 
         // POST: Clients/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,MobilePhoneNumber")] Client client)
@@ -84,8 +82,8 @@ namespace Hair_Dressing_Appointments_MVC.Controllers
         }
 
         // POST: Clients/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,MobilePhoneNumber")] Client client)

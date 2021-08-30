@@ -14,25 +14,25 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="ClientId" class="control-label"></label>
-                <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+                <select asp-for="ClientId" class ="form-control" asp-items="ViewBag.ClientId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="HairDresserId" class="control-label"></label>
-                <select asp-for="HairDresserId" class="form-control" asp-items="ViewBag.HairDresserId"></select>
+                <select asp-for="HairDresserId" class ="form-control" asp-items="ViewBag.HairDresserId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="HairDressingOptionId" class="control-label"></label>
-                <select asp-for="HairDressingOptionId" class="form-control" asp-items="ViewBag.HairDressingOptionId"></select>
+                <select asp-for="HairDressingOptionId" class ="form-control" asp-items="ViewBag.HairDressingOptionId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-outline-info" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
